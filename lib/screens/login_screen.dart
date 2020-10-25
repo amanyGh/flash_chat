@@ -2,14 +2,8 @@ import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/widgets/welcome_containers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   static const route='/login_screen';
-
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -14,7 +14,7 @@ class RegistrationScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Hero(tag:'logo',child: Image.asset('assets/images/activeOnLightCopy@3x.png',width: 100,)),
 
@@ -24,7 +24,38 @@ class RegistrationScreen extends StatelessWidget {
             //       color: Colors.yellow[600],
             //     ),
             //     onPressed: () {}),
-            
+             Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                   width: MediaQuery.of(context).size.width*0.9,
+          height:  MediaQuery.of(context).size.height*0.08,
+          decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 1,
+                  )
+          ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+             width: MediaQuery.of(context).size.width*0.9,
+          height:  MediaQuery.of(context).size.height*0.08,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            border: Border.all(
+              color: Colors.blue,
+              width: 1,
+            )
+          ),
+            ),
+                ),
+              ],
+            ),
             WelcomeContainer(text: 'Register',
             containerColor: Colors.blue[900],
             ontap: ()=>Navigator.of(context).pushNamed(WelcomeScreen.route),
