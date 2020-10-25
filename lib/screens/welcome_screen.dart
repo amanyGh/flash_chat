@@ -1,6 +1,6 @@
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
-import 'package:flash_chat/widgets/welcome_containers.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,14 +17,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   void initState() {
     super.initState();
     controller=AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 4),
       vsync: this,
     );
-    animation=CurvedAnimation(
-      parent: controller,
-      curve: Curves.easeInCirc
-    );
+    // animation=CurvedAnimation(
+    //   parent: controller,
+    //   curve: Curves.easeIn
+    // );
+    animation=ColorTween(
+      begin: Colors.blueGrey,
+      end: Colors.white).animate(controller);
     controller.forward();
+    // controller.reverse(from: 1.0);
+    // controller.forward();
+    // animation.addStatusListener((status) { 
+    //   if(status==AnimationStatus.completed){
+    //    controller.reverse(from: 1.0);
+    //   }else if(status==AnimationStatus.dismissed){
+    // controller.forward();
+
+    //   }
+    // });
     controller.addListener(() {
       setState(() {
         
@@ -35,9 +48,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   }
 
   @override
+  void dispose() { 
+    controller.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.cyan.withOpacity(controller.value),
+      backgroundColor: animation.value,
       appBar: AppBar(
         title: (Text('welcome')),
       ),
@@ -50,14 +67,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               children: [
                 Hero(tag:'logo',
                 child: Image.asset('assets/images/activeOnLightCopy@3x.png',
-                width: animation.value*100,)),
-                Text(
-                  '${controller.value.toInt()}%',
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25),
-                ),
+                width: 100,)),
+                TypewriterAnimatedTextKit(
+                  text: [
+                    'Flash Chat'
+                  ],
+                  textStyle: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black45
+                    ),
+              
+            ),
               ],
             ),
 
