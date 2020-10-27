@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "575819016428",
+    "firebase_url": "https://chat-4ca33.firebaseio.com",
+    "project_id": "chat-4ca33",
+    "storage_bucket": "chat-4ca33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575819016428:android:9a83022e2641599691ddc9",
+        "android_client_info": {
+          "package_name": "com.amany.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575819016428-qpmk6flrra8pqlict0u4qkdecsgpuqi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDslgL1fNw05nmZQUVpK8HbQltAlUTis5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575819016428-qpmk6flrra8pqlict0u4qkdecsgpuqi5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

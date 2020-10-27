@@ -1,6 +1,7 @@
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/widgets/rounded_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -65,9 +66,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Hero(tag:'logo',
-                child: Image.asset('assets/images/activeOnLightCopy@3x.png',
-                width: 100,)),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                  icon: Icon(
+                    CupertinoIcons.bolt_fill,
+                    color: Colors.yellow[600],
+                    size: 40,
+                  ),
+                  onPressed: () {}),
+                ),
                 TypewriterAnimatedTextKit(
                   text: [
                     'Flash Chat'
@@ -81,35 +89,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             ),
               ],
             ),
-
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Material(
-                elevation: 5,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30),
-                child: MaterialButton(
-                  child: Text('Log in'),
-                  onPressed: ()=>Navigator.of(context).pushNamed(LoginScreen.route),
-                  minWidth: 200,
-                  height: 42,
-                  ),   
-              ),
-            ),
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Material(
-                elevation: 5,
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30),
-                child: MaterialButton(
-                  child: Text('register'),
-                  onPressed: ()=>Navigator.of(context).pushNamed(RegistrationScreen.route),
-                  minWidth: 200,
-                  height: 42,
-                  ),   
-            ),
-             ),
+            RoundedButton(color: Colors.lightBlueAccent,text: 'Log in',ontap: ()=>Navigator.of(context).pushNamed(LoginScreen.route),),
+            RoundedButton(color: Colors.blueAccent,text: 'register',ontap: ()=>Navigator.of(context).pushNamed(RegistrationScreen.route),),
+            
           ],
         ),
       ),
